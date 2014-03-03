@@ -1,0 +1,143 @@
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Employee": {
+				"panelColor": "rgb(191, 191, 191)",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 177,
+						"Y": 270
+					}
+				}
+			},
+			"Company": {
+				"panelColor": "rgb(184, 204, 228)",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 46,
+						"Y": 26
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 1,
+			"lastScriptLocation": {
+				"Employee": {
+					"method": "Employee/Employee-methods.js"
+				}
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "Company",
+			"className": "Company",
+			"collectionName": "CompanyCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "staff",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "EmployeeCollection",
+					"reversePath": true,
+					"path": "employer"
+				},
+				{
+					"name": "code",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"className": "Employee",
+			"collectionName": "EmployeeCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "lastName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "firstName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "salary",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				},
+				{
+					"name": "employer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Company",
+					"path": "Company"
+				},
+				{
+					"name": "qty",
+					"kind": "storage",
+					"scope": "public",
+					"type": "number"
+				}
+			],
+			"methods": [
+				{
+					"name": "demo",
+					"applyTo": "entityCollection",
+					"scope": "public",
+					"from": "model.Employee.collectionMethods.demo",
+					"userDefined": true
+				},
+				{
+					"name": "getData",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "model.Employee.methods.getData",
+					"userDefined": true
+				}
+			]
+		}
+	]
+}
